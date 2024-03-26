@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class noteScript : MonoBehaviour
 {
-    public GameObject scoredisplay;
-    public GameObject note;
+    public GameObject scoredisplay, player;
     public float notespeed, positionX;
     public float yspeed = 0; 
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = new Vector3(positionX, 4.5F, 0.0F);
+        gameObject.transform.position = new Vector3(positionX, 4.5F, 0.0F);
         notespeed *= 0.00001F;
+        scoredisplay = GameObject.Find("Score Display");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -23,20 +24,23 @@ public class noteScript : MonoBehaviour
             return;
         }
         yspeed -= notespeed;
-        this.transform.position = new Vector3(positionX, this.transform.position.y + yspeed, 0.0F);
+        gameObject.transform.position = new Vector3(positionX, gameObject.transform.position.y + yspeed, 0.0F);
     }
 
-    void OnCollisionEnter2D(Collision2D c) 
+    void FixedUpdate()
     {
-        float offset = c.gameObject.transform.position.x - positionX;
-        if (offset < 0)
+        if (gameObject.transform.position.y <= -4.18)
         {
-            offset *= -1;
+            Debug.Log("Note hit detected");
+            float offset = positionX - player.transform.position.x;
+            gameObject.SetActive(false);
+            if(offset < 0)
+            {
+                offset *= -1;
+            }
+            int points = 100 - (int)(offset * 50);
+            scoredisplay.GetComponent<scoring>().ScoreUpdate(points);
+            Debug.Log("note hit and deleted, logged for " + points + " points");
         }
-        int points = 100 - (int)(offset * 50);
-        // scoredisplay.GetComponent<scoring>().ScoreUpdate(points);
-        Debug.Log("note hit: " + points + " points");
-        note.SetActive(false);
-        Debug.Log("note deleted");
     }
 }

@@ -12,6 +12,7 @@ public class scoring : MonoBehaviour
     {
         scoredisplay = GetComponent<TextMeshPro>();
         score = 0;
+        Debug.Log("score reset");
         scoredisplay.SetText(score.ToString("D6"));
     }
 
