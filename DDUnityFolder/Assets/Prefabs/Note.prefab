@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoredisplay: {fileID: 0}
+  player: {fileID: 0}
   notespeed: 3
   positionX: 0
   yspeed: 0

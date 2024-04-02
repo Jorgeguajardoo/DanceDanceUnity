@@ -10,6 +10,7 @@ public class noteScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        positionX = gameObject.transform.position.x;
         gameObject.transform.position = new Vector3(positionX, 4.5F, 0.0F);
         notespeed *= 0.00001F;
         scoredisplay = GameObject.Find("Score Display");
@@ -27,7 +28,7 @@ public class noteScript : MonoBehaviour
         gameObject.transform.position = new Vector3(positionX, gameObject.transform.position.y + yspeed, 0.0F);
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (gameObject.transform.position.y <= -4.18)
         {
@@ -38,9 +39,14 @@ public class noteScript : MonoBehaviour
             {
                 offset *= -1;
             }
+            if(offset > 1)
+            {
+                return;
+            }
             int points = 100 - (int)(offset * 50);
             scoredisplay.GetComponent<scoring>().ScoreUpdate(points);
             Debug.Log("note hit and deleted, logged for " + points + " points");
+            Destroy(gameObject);
         }
     }
 }

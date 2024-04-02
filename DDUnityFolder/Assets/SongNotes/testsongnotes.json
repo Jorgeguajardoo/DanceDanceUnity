@@ -1,0 +1,44 @@
+{
+  "noteArray": [
+    {
+      "frameoffset": 0,
+      "positionX": 0.0
+    },
+    {
+      "frameoffset": 60,
+      "positionX": 2.0
+    },
+    {
+      "frameoffset": 120,
+      "positionX": 4.0
+    },
+    {
+      "frameoffset": 180,
+      "positionX": 6.0
+    },
+    {
+      "frameoffset": 240,
+      "positionX": 8.0
+    },
+    {
+      "frameoffset": 300,
+      "positionX": 0.0
+    },
+    {
+      "frameoffset": 360,
+      "positionX": -2.0
+    },
+    {
+      "frameoffset": 420,
+      "positionX": -4.0
+    },
+    {
+      "frameoffset": 480,
+      "positionX": -6.0
+    },
+    {
+      "frameoffset": 540,
+      "positionX": -8.0
+    }
+  ]
+}

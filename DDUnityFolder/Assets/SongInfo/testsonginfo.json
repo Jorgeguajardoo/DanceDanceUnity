@@ -1,0 +1,9 @@
+{
+  "songname": "testsong",
+  "description": "song to test the game working because i'm lazy",
+  "length": 1200,
+  "difficulty": "69",
+  "songID": -1,
+  "songaudiopath": "Assets\\Audio\\testsong.mp3"
+  
+}
