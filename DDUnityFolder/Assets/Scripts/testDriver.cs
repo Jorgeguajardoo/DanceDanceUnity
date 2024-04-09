@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class testDriver : MonoBehaviour
 {
     private int frames, nextSpawnFrame, noteToRead;
     private System.Random rand;
     public GameObject note;
-    public TextAsset noteFile;
+    public TextAsset noteFile, infoFile;
     private No[] notesToRead;
+    private SongInfo info;
+    private int frameoffset;
+    public float notespeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +41,16 @@ public class testDriver : MonoBehaviour
             return;
         }
         noteToRead = 0;
+        info = new SongInfo();
+        JsonUtility.FromJsonOverwrite(infoFile.text, info);
+        this.notespeed = info.notespeed;
+        frames = (int)-(420 / (Math.Sqrt(notespeed)));
     }
 
     // Update is called once per frame
     void FixedUpdate() 
     {
-        if (frames == nextSpawnFrame)
+        if (frames <= nextSpawnFrame)
         {
             Debug.Log("SPAWNING NOTE: X POSITION " + notesToRead[noteToRead].positionX + " AT FRAMEOFFSET " + frames);
             Instantiate(note, new Vector3(notesToRead[noteToRead].positionX, 4.5F, 0), Quaternion.identity);
@@ -81,5 +89,17 @@ public class testDriver : MonoBehaviour
     {
         public int frameoffset;
         public float positionX;
+    }
+
+    [System.Serializable]
+    private class SongInfo
+    {
+        public string songname;
+        public string description;
+        public int length;
+        public string difficulty;
+        public int songID;
+        public string audiofile;
+        public float notespeed;
     }
 }
