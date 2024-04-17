@@ -14,11 +14,14 @@ public class noteScript : MonoBehaviour
         positionX = gameObject.transform.position.x;
         frame = 0;
         gameObject.transform.position = new Vector3(positionX, 4.55F, 0.0F);
-        notespeed *= 0.0001F; // IMPORTANT: THERE IS A SQUARE ROOT RELATIONSHIP BETWEEN NOTESPEED AND FRAMES IT TAKES TO FALL (5 notespeed takes sqrt 2 longer to fall than 10 notespeed)
+                              // IMPORTANT: THERE IS A SQUARE ROOT RELATIONSHIP BETWEEN NOTESPEED AND FRAMES IT TAKES TO FALL (5 notespeed takes sqrt 2 longer to fall than 10 notespeed)
                               // This may seem like a joke, but it may or may not take 420 frames for a note to fall once it spawns. lmaooooooooooo
         scoredisplay = GameObject.Find("Score Display");
         player = GameObject.Find("Player");
         notespeed = GameObject.Find("NoteSpawner").GetComponent<testDriver>().notespeed;
+        Debug.Log(notespeed.ToString());
+        notespeed *= 0.0001F;
+        
     }
 
     // Update is called once per frame
@@ -29,10 +32,10 @@ public class noteScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (notespeed >= 1)
-        {
-            return;
-        }
+        //if (notespeed >= 1)
+        //{
+        //    return;
+        //}
         yspeed -= notespeed;
         gameObject.transform.position = new Vector3(positionX, gameObject.transform.position.y + yspeed, 0.0F);
         frame++;
@@ -52,6 +55,7 @@ public class noteScript : MonoBehaviour
             }
             if(offset > 1)
             {
+                scoredisplay.GetComponent<scoring>().ScoreUpdate(0);
                 return;
             }
             int points = 100 - (int)(offset * 50);
