@@ -18,7 +18,7 @@ public class testDriver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        frames = -70;
+        frames = -50;
         rand = new System.Random();
         noteToRead = 0;
 

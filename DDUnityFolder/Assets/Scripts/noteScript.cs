@@ -53,10 +53,18 @@ public class noteScript : MonoBehaviour
             {
                 offset *= -1;
             }
-            if(offset > 1)
+            if(offset > 1.25) //counts as miss
             {
-                scoredisplay.GetComponent<scoring>().ScoreUpdate(0);
-                return;
+                offset = 2.01f;
+                Debug.LogWarning("note miss!");
+            }
+            else
+            {
+                offset -= .25f;
+                if(offset < 0)
+                {
+                    offset = 0;
+                }
             }
             int points = 100 - (int)(offset * 50);
             scoredisplay.GetComponent<scoring>().ScoreUpdate(points);

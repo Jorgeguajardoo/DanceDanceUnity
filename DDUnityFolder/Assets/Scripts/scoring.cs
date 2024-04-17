@@ -31,6 +31,10 @@ public class scoring : MonoBehaviour
 
     public void ScoreUpdate(int points)
     {
+        if (points == 0)
+        {
+            combo = 0;
+        }
         accuracymin += points;
         accuracymax += 100;
         if (combo >= 40)
