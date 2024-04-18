@@ -24,7 +24,8 @@ public class notehitanimationscript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        var = Math.Sqrt(var);
+        // var = Math.Sqrt(var);
+        // ^^ I COMMENTED THIS OUT SO IT WOULD COMPILE TO TEST OTHER STUFF SRY DEVIN
         //gameObject.transform.localScale = new Vector3(var, var, 1);
         //gameObject.SpriteRender.color = new Color(1f, 1f, 1f, 1f - var);
     }
