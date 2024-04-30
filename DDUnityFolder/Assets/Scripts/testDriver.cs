@@ -13,13 +13,18 @@ public class testDriver : MonoBehaviour
     private No[] notesToRead;
     private SongInfo info;
     private int frameoffset;
-    public float notespeed;
+    public float notespeed, manualDelay;
     private AudioSource audioData;
     // Start is called before the first frame update
     void Start()
     {
         frames = -50;
-        rand = new System.Random();
+
+        //something something find the audio file. need to discuss how to do this, or could just have a songlist thing that gets passed? not sure. could also attach to this object a list of all songs or something,
+        //                                                                                                                                             then could have it be that you pull the specific object through
+        //                                                                                                                                             .getcomponent and find or something of that sort. for now it is
+        //                                                                                                                                             manually set before gameplay, will be part of menu implementation
+
         noteToRead = 0;
 
         NoteArray asdf = new NoteArray();
@@ -45,8 +50,8 @@ public class testDriver : MonoBehaviour
         this.notespeed = (float)info.notespeed;
         
         Debug.Log("start frame: " + frames);
-        audioData = (AudioSource)GameObject.Find("TestSongAudio").GetComponent<AudioSource>();
-        float delay = (float)(.5+(4.2 / Math.Sqrt(notespeed)));
+        audioData = (AudioSource)GameObject.Find("AudioPlayer").GetComponent<AudioSource>();
+        float delay = (float)(.5+(4.2 / Math.Sqrt(notespeed)))+manualDelay;
         Debug.Log("delay:" + delay);
         nextSpawnFrame = notesToRead[noteToRead].frameoffset;
         Invoke("playAudio", delay);
@@ -55,7 +60,7 @@ public class testDriver : MonoBehaviour
 
     void OnEnable()
     {
-        this.Start();
+        // this.Start();
         //Debug.Log(noteFile.text
     }
 

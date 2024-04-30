@@ -11,22 +11,24 @@ public class notehitanimationscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var = .01f;
+        var = .6f;
         frames = 0;
-        //gameObject.transform.localScale = new Vector3(var, var, 1);
-        //gameObject.getComponent<SpriteRender>().color = new Color(1f, 1f, 1f, 1f-var);
+        gameObject.transform.localScale = new Vector3(.2f, .2f, 1);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f-var);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(frames >= 20)
+        if(frames >= 100)
         {
             Destroy(gameObject);
         }
-        // var = Math.Sqrt(var);
-        // ^^ I COMMENTED THIS OUT SO IT WOULD COMPILE TO TEST OTHER STUFF SRY DEVIN
-        //gameObject.transform.localScale = new Vector3(var, var, 1);
-        //gameObject.SpriteRender.color = new Color(1f, 1f, 1f, 1f - var);
+        var = (float)(Math.Pow(var,.7));
+        //Debug.Log("Frame " + frames + " with transparancy as " + (1f-var));
+        // ^^ fuck you jorge its back now
+        gameObject.transform.localScale = new Vector3(var, var, 1);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f - var);
+        frames++;
     }
 }

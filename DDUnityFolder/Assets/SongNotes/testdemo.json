@@ -1,0 +1,36 @@
+{
+  "noteArray": [
+    {
+      "frameoffset":50,
+      "positionX":7.0
+    },
+    {
+      "frameoffset":296,
+      "positionX":-7.0
+    },
+    {
+      "frameoffset":357,
+      "positionX":0.0
+    },
+    {
+      "frameoffset":419,
+      "positionX":0.0
+    },
+    {
+      "frameoffset":480,
+      "positionX":0.0
+    },
+    {
+      "frameoffset":542,
+      "positionX":2.0
+    },
+    {
+      "frameoffset":603,
+      "positionX":0.0
+    },
+    {
+      "frameoffset":665,
+      "positionX":-2.0
+    }
+  ]
+}

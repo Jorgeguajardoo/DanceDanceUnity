@@ -33,7 +33,7 @@ public class scoring : MonoBehaviour
     {
         if (points == 0)
         {
-            combo = 0;
+            combo = -1; //-1 so it can be ++'d back to 0
         }
         accuracymin += points;
         accuracymax += 100;

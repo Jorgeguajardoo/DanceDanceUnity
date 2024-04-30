@@ -8,6 +8,7 @@ public class noteScript : MonoBehaviour
     public float notespeed, positionX;
     public float yspeed = 0;
     private int frame;
+    public GameObject perfectanim, greatanim, okayanim, missanim;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,8 @@ public class noteScript : MonoBehaviour
                               // This may seem like a joke, but it may or may not take 420 frames for a note to fall once it spawns. lmaooooooooooo
         scoredisplay = GameObject.Find("Score Display");
         player = GameObject.Find("Player");
-        notespeed = GameObject.Find("NoteSpawner").GetComponent<testDriver>().notespeed;
-        Debug.Log(notespeed.ToString());
+        notespeed = GameObject.Find("AudioPlayer").GetComponent<testDriver>().notespeed;
+        //Debug.Log(notespeed.ToString());
         notespeed *= 0.0001F;
         
     }
@@ -41,12 +42,11 @@ public class noteScript : MonoBehaviour
         frame++;
     }
 
-    void LateUpdate()
-    {
+    void LateUpdate() {
         if (gameObject.transform.position.y <= -4.25)
         {
-            Debug.Log("Note hit detected");
-            Debug.Log("NOTE HIT ON FRAME " + frame);
+            //Debug.Log("Note hit detected");
+            //Debug.Log("NOTE HIT ON FRAME " + frame);
             float offset = positionX - player.transform.position.x;
             gameObject.SetActive(false);
             if(offset < 0)
@@ -56,7 +56,7 @@ public class noteScript : MonoBehaviour
             if(offset > 1.25) //counts as miss
             {
                 offset = 2.01f;
-                Debug.LogWarning("note miss!");
+                //Debug.LogWarning("note miss!");
             }
             else
             {
@@ -68,7 +68,21 @@ public class noteScript : MonoBehaviour
             }
             int points = 100 - (int)(offset * 50);
             scoredisplay.GetComponent<scoring>().ScoreUpdate(points);
-            Debug.Log("note hit and deleted, logged for " + points + " points");
+            //Debug.Log("note hit and deleted, logged for " + points + " points");
+            if(points == 100)
+            {
+                Instantiate(perfectanim, new Vector3(this.positionX, -4.5F, 0), Quaternion.identity);
+            }else if(points > 70)
+            {
+                Instantiate(greatanim, new Vector3(this.positionX, -4.5F, 0), Quaternion.identity);
+            }else if(points > 0)
+            {
+                Instantiate(okayanim, new Vector3(this.positionX, -4.5F, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(missanim, new Vector3(this.positionX, -4.5F, 0), Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
