@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5020368080035070380}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -125,6 +125,10 @@ MonoBehaviour:
   notespeed: 0
   positionX: 0
   yspeed: 0
+  perfectanim: {fileID: 8069994303603096758, guid: 2d26d6707c9e85447b6b263bb19873e6, type: 3}
+  greatanim: {fileID: 8069994303603096758, guid: 9b0b5547880f2a446907a2f507592e6a, type: 3}
+  okayanim: {fileID: 8069994303603096758, guid: e374050d17543794582f551b2aaa0eb7, type: 3}
+  missanim: {fileID: 8069994303603096758, guid: fa02cb5eefae4bd4dada6faad9497c5c, type: 3}
 --- !u!58 &468132728181173630
 CircleCollider2D:
   m_ObjectHideFlags: 0
