@@ -1,4 +1,4 @@
-package DDUNoteJsonTimingCreator;
+ 
 import java.util.*;
 import java.io.*;
 
@@ -42,23 +42,25 @@ public class SongNoteJsonCreatorBeatsInsteadOfFrames{
         str.deleteCharAt(str.length()-2);
         str.append("  ]\n}");
         System.out.print("\f");
-        System.out.println("done");
-        System.out.println("Enter name of file to write to");
-        String name = scan.nextLine();
-        try{
-            File file = new File(name);
-            if(file.createNewFile()){
-                System.out.println("New file created");
-            }else{
-                System.out.println("File already exists, text will be overwritten");
+        System.out.println("please enter name of file to write to");
+        String name = "";
+        while(true){
+            name = scan.nextLine();
+            System.out.println("Are you sure you would like to write to the file named \n'" + name + "'?");
+            if(scan.nextLine().toLowerCase().contains("y")){
+                break;
             }
-            FileWriter writer = new FileWriter(name);
-            writer.write(str.toString());
-            System.out.println("Wrote successfully");
-            writer.close();
-        }catch(IOException e){
-            e.printStackTrace();
         }
-        
+        File file = new File(name);
+        if(file.createNewFile()){
+            System.out.println("new file created");
+        }else{
+            System.out.println("overwriting existing file");
+        }
+        FileWriter writer = new FileWriter(name);
+        writer.write(str.toString());
+        writer.close();
+        System.out.println("done");
+        System.out.println("\fSuccessfully wrote to file " + name + ".");
     }
 }

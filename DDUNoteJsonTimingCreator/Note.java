@@ -1,4 +1,4 @@
-package DDUNoteJsonTimingCreator;
+ 
 
 public class Note{
     public int frameoffset;
