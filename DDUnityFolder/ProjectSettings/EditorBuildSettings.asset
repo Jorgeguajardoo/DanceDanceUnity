@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: e153e3a7bea95d64ca4a86fd861aa3fa
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 114b6923c74b363438fa259b969b2450
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 124ba5236dff758489cb9870fdd3a4b9
+  - enabled: 1
+    path: Assets/Scenes/Timing Tester.unity
+    guid: 6a1bfaf9a46f24f44b754806998456ea
+  - enabled: 1
+    path: Assets/Scenes/Song Selection.unity
+    guid: d56d1bfbfca254f4b821e9afedbd5a82
+  - enabled: 1
+    path: Assets/Scenes/SongScenes/Circles.unity
+    guid: bdac245c710af734c9ae823a687dd3e6
+  - enabled: 1
+    path: Assets/Scenes/SongScenes/LittleDarkAge.unity
+    guid: 1b284a30e0a1b1642b8eb6227f5b24bc
+  - enabled: 1
+    path: Assets/Scenes/SongScenes/Ruler of Everything.unity
+    guid: 1cf3a3e6425833a48897d9e282717540
+  - enabled: 0
     path: Assets/StartScreen.unity
     guid: 21029b8c6c75f674884a98388668688e
   - enabled: 0
@@ -14,10 +38,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/GamePlay.unity
     guid: 3dc74edea87f36a45a7d0d2c26476bce
-  - enabled: 1
-    path: Assets/SongScenes/LittleDarkAge.unity
-    guid: 1b284a30e0a1b1642b8eb6227f5b24bc
-  - enabled: 1
-    path: Assets/SongScenes/Circles.unity
-    guid: bdac245c710af734c9ae823a687dd3e6
   m_configObjects: {}

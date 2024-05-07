@@ -124,7 +124,7 @@ MonoBehaviour:
   movedirection: 0
   leftKey: a
   rightKey: d
-  speed: 0.1
+  speed: 0.15
 --- !u!60 &6815805080999941192
 PolygonCollider2D:
   m_ObjectHideFlags: 0
